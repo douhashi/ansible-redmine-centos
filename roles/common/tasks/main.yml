@@ -36,3 +36,9 @@
   notify:
     - restart iptables
   tags: iptables
+
+# selinux
+- name: Install libselinux-python
+  yum: name=libselinux-python state=present
+- name: SELinux disabled
+  selinux: state=disabled
