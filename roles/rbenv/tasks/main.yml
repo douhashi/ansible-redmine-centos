@@ -1,0 +1,30 @@
+---
+# Rubyの依存パッケージをinstall
+- yum: name={{item}} state=latest
+  with_items:
+    - gcc
+    - zlib-devel
+    - openssl-devel
+    - sqlite
+    - sqlite-devel
+    - mysql-devel
+    - libffi-devel
+
+# Git install
+- yum: name=git state=latest
+
+# Rubyをrbenv経由でinstall
+- git: >
+    repo=https://github.com/sstephenson/rbenv.git
+    dest=/home/{{rbenv.user}}/.rbenv/
+- git: >
+    repo=https://github.com/sstephenson/ruby-build.git
+    dest=/home/{{rbenv.user}}/.rbenv/plugins/ruby-build/
+- file: path=/home/{{rbenv.user}}/.rbenv owner={{rbenv.user}} state=directory recurse=yes
+
+- shell: rbenv install -v {{rbenv.ruby_version}}
+  sudo: no
+- shell: rbenv rehash
+  sudo: no
+- shell: rbenv global {{rbenv.ruby_version}}
+  sudo: no

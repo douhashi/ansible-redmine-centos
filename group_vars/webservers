@@ -2,3 +2,6 @@ iptables:
   accept_tcp_rules:
     - { port: 22 }
     - { port: 80 }
+rbenv:
+  user: app
+  ruby_version: 2.2.5
