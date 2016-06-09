@@ -3,7 +3,7 @@
 ## 0. install Ansible
 
 ```
-$ sudo yum install epel-releas
+$ sudo yum install epel-release
 $ sudo yum install ansible
 ```
 
@@ -12,7 +12,7 @@ $ sudo yum install ansible
 ### 1-1. for local install
 
 ```
-$ git clone git@github.com:douhashi/ansible-redmine-centos.git
+$ git clone https://github.com/douhashi/ansible-redmine-centos.git
 $ cd ansible-redmine-centos
 $ ansible-playbook -i local site.yml --connection local
 ```

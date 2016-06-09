@@ -7,4 +7,10 @@
   with_items:
     - MariaDB-server
     - MariaDB-client
-    
+    - MariaDB-devel
+
+- name: add my.cnf character-set-server
+  replace: dest=/etc/my.cnf.d/server.cnf regexp="^\[mysqld\]$" replace="[mysqld]\ncharacter-set-server=utf8"
+
+- name: mysql service enabled.
+  service: name=mysqld state=started enabled=yes
