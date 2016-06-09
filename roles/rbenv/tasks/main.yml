@@ -1,5 +1,4 @@
 ---
-# Rubyの依存パッケージをinstall
 - yum: name={{item}} state=latest
   with_items:
     - gcc
@@ -10,30 +9,32 @@
     - mysql-devel
     - libffi-devel
 
-# Git install
 - yum: name=git state=latest
 
-# Rubyをrbenv経由でinstall
 - git: >
     repo=https://github.com/sstephenson/rbenv.git
     dest=/home/{{rbenv.user}}/.rbenv/
   become: yes
-  become_user: {{rbenv.user}}
+  become_user: "{{rbenv.user}}"
+
 - git: >
     repo=https://github.com/sstephenson/ruby-build.git
     dest=/home/{{rbenv.user}}/.rbenv/plugins/ruby-build/
   become: yes
   become_user: {{rbenv.user}}
+
 - file: path=/home/{{rbenv.user}}/.rbenv owner={{rbenv.user}} state=directory recurse=yes
   become: yes
-  become_user: {{rbenv.user}}
+  become_user: "{{rbenv.user}}"
 
 - shell: rbenv install -v {{rbenv.ruby_version}}
   become: yes
-  become_user: {{rbenv.user}}
+  become_user: "{{rbenv.user}}"
+
 - shell: rbenv rehash
   become: yes
-  become_user: {{rbenv.user}}
+  become_user: "{{rbenv.user}}"
+
 - shell: rbenv global {{rbenv.ruby_version}}
   become: yes
-  become_user: {{rbenv.user}}
+  become_user: "{{rbenv.user}}"
