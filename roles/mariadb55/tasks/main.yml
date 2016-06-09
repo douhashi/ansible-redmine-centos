@@ -1,0 +1,10 @@
+---
+- name: MariaDB.repo exist
+  copy: src="MariaDB.repo" dest="/etc/yum.repos.d/MariaDB.repo" owner=root group=root mode=0600
+
+- name: MariaDB installed
+  yum: name={{ item }} state=latest
+  with_items:
+    - MariaDB-server
+    - MariaDB-client
+    
