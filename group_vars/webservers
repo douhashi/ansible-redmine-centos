@@ -5,3 +5,19 @@ iptables:
 rbenv:
   user: app
   ruby_version: 2.2.5
+redmine:
+  user: app
+  group: app
+  version: 3.1.6
+  db:
+    adapter: mysql2
+    host: localhost
+    dbname: redmine
+    user: root
+    password: ""
+  smtp:
+    address: ""
+    domain: ""
+    port: 25
+    user: ""
+    password: ""

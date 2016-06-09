@@ -1,0 +1,9 @@
+---
+- name: imagemagick installed
+  yum: name={{ item }} state=latest
+  with_items:
+    - "ImageMagick"
+    - "ImageMagick-devel"
+
+# create redmine directories
+- include: create_redmine_directories.yml
