@@ -1,0 +1,9 @@
+[webservers]
+localhost
+
+[dbservers]
+localhost
+
+[redmine_servers:children]
+webservers
+dbservers
