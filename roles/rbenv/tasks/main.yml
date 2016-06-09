@@ -17,14 +17,23 @@
 - git: >
     repo=https://github.com/sstephenson/rbenv.git
     dest=/home/{{rbenv.user}}/.rbenv/
+  become: yes
+  become_user: {{rbenv.user}}
 - git: >
     repo=https://github.com/sstephenson/ruby-build.git
     dest=/home/{{rbenv.user}}/.rbenv/plugins/ruby-build/
+  become: yes
+  become_user: {{rbenv.user}}
 - file: path=/home/{{rbenv.user}}/.rbenv owner={{rbenv.user}} state=directory recurse=yes
+  become: yes
+  become_user: {{rbenv.user}}
 
 - shell: rbenv install -v {{rbenv.ruby_version}}
-  sudo: no
+  become: yes
+  become_user: {{rbenv.user}}
 - shell: rbenv rehash
-  sudo: no
+  become: yes
+  become_user: {{rbenv.user}}
 - shell: rbenv global {{rbenv.ruby_version}}
-  sudo: no
+  become: yes
+  become_user: {{rbenv.user}}
