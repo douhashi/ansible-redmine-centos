@@ -1,0 +1,3 @@
+users:
+  - { name: maintainer,  password: "$1$yGzKOpMh$KOpgUoNv6f8zVSyhBw543/", groups: "wheel" }
+  - { name: app,  password: "$1$yGzKOpMh$KOpgUoNv6f8zVSyhBw543/", groups: "wheel" }

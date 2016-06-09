@@ -1,0 +1,4 @@
+## Allows people in group wheel to run all commands
+%wheel ALL=(ALL) NOPASSWD:ALL
+Defaults:%wheel !requiretty
+Defaults:%wheel env_keep += SSH_AUTH_SOCK
