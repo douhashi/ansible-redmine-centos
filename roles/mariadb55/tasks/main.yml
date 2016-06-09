@@ -1,0 +1,16 @@
+---
+- name: MariaDB.repo exist
+  copy: src="MariaDB.repo" dest="/etc/yum.repos.d/MariaDB.repo" owner=root group=root mode=0600
+
+- name: MariaDB installed
+  yum: name={{ item }} state=latest
+  with_items:
+    - MariaDB-server
+    - MariaDB-client
+    - MariaDB-devel
+
+- name: add my.cnf character-set-server
+  replace: dest=/etc/my.cnf.d/server.cnf regexp="^\[mysqld\]$" replace="[mysqld]\ncharacter-set-server=utf8"
+
+- name: mysql service enabled.
+  service: name=mysql state=started enabled=yes

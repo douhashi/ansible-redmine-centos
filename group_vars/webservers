@@ -1,0 +1,25 @@
+iptables:
+  accept_tcp_rules:
+    - { port: 22 }
+    - { port: 80 }
+rbenv:
+  user: app
+  ruby_version: 2.2.5
+redmine:
+  root_dir: /var/rails
+  user: app
+  group: app
+  version: 3.1.6
+  fqdn: redmine.local
+  db:
+    adapter: mysql2
+    host: localhost
+    dbname: redmine
+    user: root
+    password: ""
+  smtp:
+    address: ""
+    domain: ""
+    port: 25
+    user: ""
+    password: ""

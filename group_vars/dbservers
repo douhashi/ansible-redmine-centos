@@ -1,0 +1,6 @@
+iptables:
+  accept_tcp_rules:
+    - { port: 22 }
+    - { port: 3306, source: 127.0.0.1 }
+mysql56:
+  repository_url: https://dev.mysql.com/get/mysql57-community-release-el6-8.noarch.rpm
