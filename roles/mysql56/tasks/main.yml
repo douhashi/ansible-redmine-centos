@@ -6,13 +6,11 @@
   yum: name={{ mysql56.repository_url }}
 
 - name: install MySQL/MySQL-python/libselinux-python
-  yum: name={{ item.name }} enablerepo={{ item.repo }} state=present
-  enablerepo: mysql56-community
-  disablerepo: mysql57-community
+  yum: name={{ item.name }} enablerepo={{ item.repo }} disablerepo=mysql57-community state=present
   with_items:
-    - { name: "mysql-community-libs-compat", repo: "mysql57-community" }
-    - { name: "mysql-community-client", repo: "mysql57-community" }
-    - { name: "mysql-community-server", repo: "mysql57-community" }
+    - { name: "mysql-community-libs-compat", repo: "mysql56-community" }
+    - { name: "mysql-community-client", repo: "mysql56-community" }
+    - { name: "mysql-community-server", repo: "mysql56-community" }
     - { name: "MySQL-python", repo: "epel" }
     - { name: "libselinux-python", repo: "epel" }
 
