@@ -10,6 +10,7 @@ redmine:
   user: app
   group: app
   version: 3.1.6
+  fqdn: redmine.local
   db:
     adapter: mysql2
     host: localhost
