@@ -35,7 +35,7 @@ start() {
     cd $RAILS_ROOT
 #    $ruby_home/bin/unicorn_rails -c $UNICORN_CONF -E production -D --path /redmine
     #sudo -u {{redmine.user}} bash -lc "bundle exec unicorn_rails -c $UNICORN_CONF -E $ENV -D --path $SUB_PATH"
-    sudo -u {{redmine.user}} bash -lc "bundle exec unicorn_rails -c $UNICORN_CONF -E $ENV -D
+    sudo -u {{redmine.user}} bash -lc "bundle exec unicorn_rails -c $UNICORN_CONF -E $ENV -D"
     RETVAL=$?
     echo
     return $RETVAL
