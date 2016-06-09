@@ -1,5 +1,5 @@
 ---
-- name: imagemagick installed
+- name: imagemagick and font installed
   yum: name={{ item }} state=latest
   with_items:
     - "ImageMagick"
