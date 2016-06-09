@@ -4,6 +4,7 @@
   with_items:
     - "ImageMagick"
     - "ImageMagick-devel"
+    - "ipa-pgothic-fonts"
 
 # create redmine directories
 - include: create_redmine_directories.yml
