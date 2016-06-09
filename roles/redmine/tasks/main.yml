@@ -8,8 +8,8 @@
 
 - name: bundler installed.
   become: yes
-  become_user: "{{redmine.user}}"
-  command: bash -lc "gem install bundler"
+  become_user: {{ remdine.user }}
+  command: "gem install bundler"
 
 # create redmine directories
 - include: create_redmine_directories.yml
@@ -30,14 +30,14 @@
   become: yes
   become_user: "{{redmine.user}}"
 
-#- name: Install redmine init script
-#  template: src=unicorn_redmine.j2 dest=/etc/init.d/redmine mode=0755
+- name: Install redmine init script
+  template: src=unicorn_redmine.j2 dest=/etc/init.d/redmine mode=0755
 
-#- name: remove config.ru on Redmine root
-#  file: path=/var/rails/redmine/config.ru state=absent
+- name: remove config.ru on Redmine root
+  file: path=/var/rails/redmine/config.ru state=absent
 
 - name: add configuration.yml
   template: src=configuration.yml.j2 dest=/var/rails/shared/config/configuration.yml
 
-#- name: Start redmine
-#  service: name=redmine state=restarted enabled=yes
+- name: Start redmine
+  service: name=redmine state=restarted enabled=yes
