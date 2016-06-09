@@ -14,5 +14,5 @@ $ sudo yum install ansible
 ```
 $ git clone git@github.com:douhashi/ansible-redmine-centos.git
 $ cd ansible-redmine-centos
-$ ansible-playbook -i local 
+$ ansible-playbook -i local site.yml --connection local
 ```
